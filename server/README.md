@@ -1,2 +1,0 @@
-Secure Aggregation - Server
-
