@@ -1,11 +1,11 @@
     import XCTest
-    @testable import secure_aggregation_client
+    @testable import SecureAggregationClient
 
-    final class secure_aggregation_clientTests: XCTestCase {
+    final class SecureAggregationClientTests: XCTestCase {
         func testExample() {
             // This is an example of a functional test case.
             // Use XCTAssert and related functions to verify your tests produce the correct
             // results.
-            XCTAssertEqual(secure_aggregation_client().text, "Hello, World!")
+            XCTAssertEqual(SecureAggregationClient().text, "Hello, World!")
         }
     }
