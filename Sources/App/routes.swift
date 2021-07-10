@@ -8,4 +8,8 @@ func routes(_ app: Application) throws {
     app.get("hello") { req -> String in
         return "Hello, world!"
     }
+    
+    app.get("count") { req -> String in
+        return "\(Test.shared.count)"
+    }
 }
