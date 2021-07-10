@@ -7,14 +7,17 @@ let package = Package(
        .macOS(.v10_15)
     ],
     products: [
-        .library(name: "SecureAggregationServer",
-                 targets: ["App"]),
+        .library(name: "SecureAggregation",
+                 targets: ["SecureAggregation"]),
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
     ],
     targets: [
+        .target(
+            name: "SecureAggregation"
+        ),
         .target(
             name: "App",
             dependencies: [
