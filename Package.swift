@@ -6,30 +6,24 @@ let package = Package(
     platforms: [
        .macOS(.v10_15)
     ],
-    products: [
-        .library(name: "SecureAggregationCore",
-                 targets: ["SecureAggregationCore"]),
-    ],
     dependencies: [
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
+        .package(url: "../SecureAggregationCore", Package.Dependency.Requirement.branch("main")),
     ],
     targets: [
-        .target(
-            // Secure Aggregation Core functionality shared by Client and Server. Should be moved to seperate Repository
-            name: "SecureAggregationCore"
-        ),
         .target(
             // Server-side implementation of Secure Aggregation using SecureAggregationCore
             name: "SecureAggregation",
             dependencies: [
-                .target(name: "SecureAggregationCore")
+                .product(name: "SecureAggregationCore", package: "SecureAggregationCore"),
             ]
         ),
         .target(
             name: "App",
             dependencies: [
-                .product(name: "Vapor", package: "vapor")
+                .product(name: "Vapor", package: "vapor"),
+                .target(name: "SecureAggregation")
             ],
             swiftSettings: [
                 // Enable better optimizations when building in Release configuration. Despite the use of

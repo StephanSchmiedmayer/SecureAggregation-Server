@@ -47,6 +47,15 @@
         }
       },
       {
+        "package": "SecureAggregationCore",
+        "repositoryURL": "/Users/stephan/developer/bachelorarbeit/SecureAggregationCore",
+        "state": {
+          "branch": "main",
+          "revision": "a3f8377b22b6428293efe0172cf9ebc72aad99d3",
+          "version": null
+        }
+      },
+      {
         "package": "swift-backtrace",
         "repositoryURL": "https://github.com/swift-server/swift-backtrace.git",
         "state": {
