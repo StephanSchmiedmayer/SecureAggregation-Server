@@ -7,8 +7,8 @@ let package = Package(
        .macOS(.v10_15)
     ],
     products: [
-        .library(name: "SecureAggregation",
-                 targets: ["SecureAggregation"]),
+        .library(name: "SecureAggregationCore",
+                 targets: ["SecureAggregationCore"]),
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
@@ -16,7 +16,15 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "SecureAggregation"
+            // Secure Aggregation Core functionality shared by Client and Server. Should be moved to seperate Repository
+            name: "SecureAggregationCore"
+        ),
+        .target(
+            // Server-side implementation of Secure Aggregation using SecureAggregationCore
+            name: "SecureAggregation",
+            dependencies: [
+                .target(name: "SecureAggregationCore")
+            ]
         ),
         .target(
             name: "App",

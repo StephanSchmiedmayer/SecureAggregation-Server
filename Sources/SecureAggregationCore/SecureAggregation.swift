@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+public class Test {
+    static var test: String = "Asdf"
+}
