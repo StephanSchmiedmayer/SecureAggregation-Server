@@ -20,10 +20,14 @@ let package = Package(
             ]
         ),
         .target(
+            name: "NormalAggregation"
+        ),
+        .target(
             name: "App",
             dependencies: [
                 .product(name: "Vapor", package: "vapor"),
-                .target(name: "SecureAggregation")
+                .target(name: "SecureAggregation"),
+                .target(name: "NormalAggregation")
             ],
             swiftSettings: [
                 // Enable better optimizations when building in Release configuration. Despite the use of

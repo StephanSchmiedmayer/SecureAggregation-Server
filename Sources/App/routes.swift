@@ -7,6 +7,10 @@ func routes(_ app: Application) throws {
     
     let normalAggregation = app.grouped("NormalAggregation")
     
+//    normalAggregation.get {
+//        
+//    }
+    
 //    normalAggregation.get() { req -> String
 //
 //    }

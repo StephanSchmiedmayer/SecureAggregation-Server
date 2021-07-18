@@ -51,7 +51,7 @@
         "repositoryURL": "/Users/stephan/developer/bachelorarbeit/SecureAggregationCore",
         "state": {
           "branch": "main",
-          "revision": "a3f8377b22b6428293efe0172cf9ebc72aad99d3",
+          "revision": "af05015bfe56484ce6ba190aff28c97589e16cb7",
           "version": null
         }
       },
@@ -141,8 +141,8 @@
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": null,
-          "revision": "f94f0bff47c1c07df6e404e889f5c71c4270a9ea",
-          "version": "4.47.2"
+          "revision": "4aafa9f859e4b011739e3232495e0375d2b8418d",
+          "version": "4.48.1"
         }
       },
       {
