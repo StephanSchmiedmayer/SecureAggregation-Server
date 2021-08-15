@@ -2,32 +2,23 @@
 import PackageDescription
 
 let package = Package(
-    name: "SecureAggregationServer",
+    name: "secureaggregationserver",
     platforms: [
        .macOS(.v10_15)
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
-        .package(url: "../SecureAggregationCore", Package.Dependency.Requirement.branch("main")),
+        .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
+        .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.0.0"),
     ],
     targets: [
         .target(
-            // Server-side implementation of Secure Aggregation using SecureAggregationCore
-            name: "SecureAggregation",
-            dependencies: [
-                .product(name: "SecureAggregationCore", package: "SecureAggregationCore"),
-            ]
-        ),
-        .target(
-            name: "NormalAggregation"
-        ),
-        .target(
             name: "App",
             dependencies: [
-                .product(name: "Vapor", package: "vapor"),
-                .target(name: "SecureAggregation"),
-                .target(name: "NormalAggregation")
+                .product(name: "Fluent", package: "fluent"),
+                .product(name: "FluentPostgresDriver", package: "fluent-postgres-driver"),
+                .product(name: "Vapor", package: "vapor")
             ],
             swiftSettings: [
                 // Enable better optimizations when building in Release configuration. Despite the use of
