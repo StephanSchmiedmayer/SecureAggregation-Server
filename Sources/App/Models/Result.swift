@@ -29,3 +29,5 @@ final class Result: Model {
         self.clientThatFinisehdCount = clientThatFinisehdCount
     }
 }
+
+extension Result: Content {}
