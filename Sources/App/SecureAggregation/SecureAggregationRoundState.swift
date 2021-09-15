@@ -53,20 +53,20 @@ class Round0BuilderState {
     let previousState: SetupState
     
     /// All messages recieved by the server
-    private(set) var collectedMessages: [Model.Round0.PublicKeysOfUser] = []
+    private(set) var collectedMessages: [Model.PublicKeysOfUser] = []
     
     init(_ setupState: SetupState) {
         self.previousState = setupState
     }
     
-    func addMessage(_ message: Model.Round0.PublicKeysOfUser) {
+    func addMessage(_ message: Model.PublicKeysOfUser) {
         collectedMessages.append(message)
     }
 }
 
 class Round0FinishedState: SetupState {
     /// All messages collected by the server
-    let publicKeys: [Model.Round0.PublicKeysOfUser]
+    let publicKeys: [Model.PublicKeysOfUser]
     
     var U1: [UserID] {
         publicKeys.map { $0.userID }
