@@ -84,8 +84,8 @@ class BasicSecureAggregationController {
     }
     
     func round1ServerResponse(_ req: Request) throws -> Network.Round1.ServerData {
-        let userID = try req.content.decode(UserID.self)
-        return try Network.Round1.ServerData(try model.getRound1FinishedMessage(userID: userID))
+        let clientMessage = try req.content.decode(Network.Round1.ClientDataNeededForServerData.self)
+        return try Network.Round1.ServerData(try model.getRound1FinishedMessage(userID: clientMessage.unwrap()))
     }
     
     // MARK: - Round2
@@ -106,7 +106,7 @@ class BasicSecureAggregationController {
     }
     
     func round2ServerResponse(_ req: Request) throws -> Network.Round2.ServerData {
-        return try Network.Round2.ServerData(try model.getRound2FinishedMessage())
+        return Network.Round2.ServerData(try model.getRound2FinishedMessage())
     }
     
     // MARK: - Round4
@@ -127,7 +127,7 @@ class BasicSecureAggregationController {
     }
     
     func round4ServerResponse(_ req: Request) throws -> Network.Round4.ServerData<Value> {
-        return try Network.Round4.ServerData(try model.getRound4FinishedMessage())
+        return Network.Round4.ServerData(try model.getRound4FinishedMessage())
     }
 }
 
