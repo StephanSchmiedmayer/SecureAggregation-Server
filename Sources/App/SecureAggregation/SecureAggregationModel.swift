@@ -35,7 +35,7 @@ class SecureAggregationModel<Value: SAWrappedValue> {
     
     // MARK: - Login
         
-    func loginClient() throws -> Int  {
+    func loginClient() throws -> UserID  {
         return try stateLock.withLock {
             guard case .login(let loginBuilderState) = state else {
                 throw SecureAggregationError.incorrectStateForMethod
@@ -79,7 +79,7 @@ class SecureAggregationModel<Value: SAWrappedValue> {
         }
     }
     
-    func addRound0MessageFromuser(_ message: Model.Round0.ClientData) throws {
+    func addRound0Message(_ message: Model.Round0.ClientData) throws {
         try stateLock.withLock {
             guard case .round0(let round0State) = state else {
                 throw SecureAggregationError.incorrectStateForMethod
@@ -175,12 +175,12 @@ class SecureAggregationModel<Value: SAWrappedValue> {
         }
     }
     
-    func getRound2FinishedMessage() throws -> [UserID] {
+    func getRound2FinishedMessage() throws -> Model.Round2.ServerData {
         try stateLock.withLock {
             guard case .round2Finished(let round2FinishedState) = state else {
                 throw SecureAggregationError.incorrectStateForMethod
             }
-            return round2FinishedState.U2
+            return Model.Round2.ServerData(remainingUsers: round2FinishedState.U2)
         }
     }
     
@@ -260,12 +260,12 @@ class SecureAggregationModel<Value: SAWrappedValue> {
         }
     }
     
-    func getRound4FinishedMessage() throws -> Value {
+    func getRound4FinishedMessage() throws -> Model.Round4.ServerData<Value> {
         try stateLock.withLock {
             guard case .finished(let finishedState) = state else {
                 throw SecureAggregationError.incorrectStateForMethod
             }
-            return finishedState.value
+            return Model.Round4.ServerData(value: finishedState.value)
         }
     }
     
