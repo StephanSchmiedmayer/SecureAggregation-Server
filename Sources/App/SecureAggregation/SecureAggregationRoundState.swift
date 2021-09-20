@@ -69,7 +69,7 @@ class Round0FinishedState: SetupState {
     let publicKeys: [Model.PublicKeysOfUser]
     
     var U1: [UserID] {
-        publicKeys.map { $0.userID }
+        publicKeys.map { $0.userID }.unique()
     }
     
     init(previousState round0BuilderState: Round0BuilderState) {
@@ -101,7 +101,7 @@ class Round1FinishedState: Round0FinishedState {
     let encryptedShares: [Model.EncryptedShare]
     
     var U2: [UserID] {
-        encryptedShares.map { $0.u }
+        encryptedShares.map { $0.u }.unique()
     }
     
     init(previousState: Round1BuilderState) {
@@ -132,7 +132,7 @@ class Round2BuilderState<Value: SAWrappedValue> {
 class Round2FinishedState<Value: SAWrappedValue>: Round1FinishedState {
     let collectedMaskedValues: [Model.MaskedValueFromUser<Value>]
     var U3: [UserID] {
-        collectedMaskedValues.map { $0.origin }
+        collectedMaskedValues.map { $0.origin }.unique()
     }
     
     init(previousState: Round2BuilderState<Value>) {

@@ -16,3 +16,10 @@ extension Array where Element: SAWrappedValue {
         }
     }
 }
+
+extension Array where Element: Hashable {
+    /// Returns all unique (meaning unequal Hash value) elements 
+    func unique() -> [Element] {
+        Array(Set(self))
+    }
+}

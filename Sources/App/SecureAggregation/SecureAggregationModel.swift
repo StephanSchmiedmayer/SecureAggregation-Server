@@ -211,7 +211,7 @@ class SecureAggregationModel<Value: SAWrappedValue> {
             }
             // Calculate value
             let currentState = Round4State(previousState: round4BuilderState)
-            let U2WithoutU3 = currentState.U2.filter { currentState.U3.contains($0) }
+            let U2WithoutU3 = currentState.U2.filter { !currentState.U3.contains($0) }
             // try to reconstruct s_u_SK
             let masksFromDroppedOutUsers = try U2WithoutU3.map { uID -> Value in
                 let s_uv_privateKey_shares = currentState.s_uv.filter {
