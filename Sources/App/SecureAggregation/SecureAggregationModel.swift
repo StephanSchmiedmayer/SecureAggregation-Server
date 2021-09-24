@@ -62,9 +62,9 @@ class SecureAggregationModel<Value: SAWrappedValue> {
                 throw SecureAggregationError.incorrectStateForMethod
             }
             return SAConfiguration(numberOfUsers: setupState.U0.count,
-                                   threshold: threshold,
+                                   threshold: self.threshold,
                                    modulus: self.modulus,
-                                   salt: salt)
+                                   salt: self.salt)
         }
     }
     
