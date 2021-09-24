@@ -211,27 +211,29 @@ class SecureAggregationModel<Value: SAWrappedValue> {
             }
             // Calculate value
             let currentState = Round4State(previousState: round4BuilderState)
-            let U2WithoutU3 = currentState.U2.filter { !currentState.U3.contains($0) }
+            let U2WithoutU3 = Set(currentState.U2).subtracting(Set(currentState.U3))// currentState.U2.filter { !currentState.U3.contains($0) }
             // try to reconstruct s_u_SK
-            let masksFromDroppedOutUsers = try U2WithoutU3.map { uID -> Value in
-                let s_uv_privateKey_shares = currentState.s_uv.filter {
-                    $0.origin == uID
+            let p_vu_uElemU3_vElemU2WithoutU3_array = try U2WithoutU3.map { vID -> (SAPubKeyCurve.KeyAgreement.PrivateKey, UserID)  in
+                let s_v_privateKey_shares = currentState.s_uv.filter {
+                    $0.origin == vID
                 }.map {
                     $0.share
                 }
-                let encodedPrivateKey = try Secret.combine(shares: s_uv_privateKey_shares)
-                let s_uv_privateKey = try SAPubKeyCurve.KeyAgreement.PrivateKey(rawRepresentation: encodedPrivateKey)
-                let s_uv_wrapperOptional = currentState.publicKeys.first { keyWrapper in
-                    keyWrapper.userID == uID
+                let encoded_s_v_privateKey = try Secret.combine(shares: s_v_privateKey_shares)
+                let s_v_privateKey = try SAPubKeyCurve.KeyAgreement.PrivateKey(rawRepresentation: encoded_s_v_privateKey)
+                return (s_v_privateKey, vID)
+            }.flatMap { s_v_privateKey, vID in
+                // u elem U3, v elem U2\U3, p_uv = -p_vu:
+                // y_u = x_u + p_uv (+...); x_u (+...) = y_u - p_uv = y_u + p_vu
+                try currentState.U3.map { uID -> Value in
+                    guard let s_u_publicKey = currentState.publicKeys.first(where: { $0.userID == uID })?.s_publicKey else {
+                        throw SecureAggregationError.protocolAborted(reason: .unexpecedUserInProtocol)
+                    }
+                    let s_uv_sharedSecret = try s_v_privateKey.sharedSecretFromKeyAgreement(with: s_u_publicKey)
+                    return Value.mask(forSeed: s_uv_sharedSecret, mod: self.modulus).cancelling(ownID: vID, otherID: uID) // p_vu
                 }
-                
-                guard let s_uv_publicKey = s_uv_wrapperOptional?.s_publicKey else {
-                    throw SecureAggregationError.protocolAborted(reason: .unexpecedUserInProtocol)
-                }
-                let s_uv_sharedSecret = try s_uv_privateKey.sharedSecretFromKeyAgreement(with: s_uv_publicKey)
-                return Value.mask(forSeed: s_uv_sharedSecret, mod: self.modulus)
             }
-            let masksForRemainingUsers = try currentState.U3.map { uID in
+            let p_u_masksForRemainingUsers = try currentState.U3.map { uID in
                 currentState.b_uv.filter {
                     $0.origin == uID
                 }.map {
@@ -252,10 +254,10 @@ class SecureAggregationModel<Value: SAWrappedValue> {
             }.map {
                 $0.maskedValue
             }.sum(mod: self.modulus)
-            let sum_p_u_U3 = masksForRemainingUsers.sum(mod: self.modulus)
-            let sum_p_vu_uElemU3_vElemU2WithoutU3 = masksFromDroppedOutUsers.sum(mod: self.modulus)
+            let sum_p_u_uElemU3 = p_u_masksForRemainingUsers.sum(mod: self.modulus)
+            let sum_p_vu_uElemU3_vElemU2WithoutU3 = p_vu_uElemU3_vElemU2WithoutU3_array.sum(mod: self.modulus)
             
-            let finalValue = sum_y_u_U3.sub(sum_p_u_U3, mod: self.modulus).sub(sum_p_vu_uElemU3_vElemU2WithoutU3, mod: self.modulus)
+            let finalValue = sum_y_u_U3.sub(sum_p_u_uElemU3, mod: self.modulus).add(sum_p_vu_uElemU3_vElemU2WithoutU3, mod: self.modulus)
             try state.advance(to: .finished(FinishedState<Value>(value: finalValue)))
         }
     }
