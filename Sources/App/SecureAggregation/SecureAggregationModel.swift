@@ -230,7 +230,7 @@ class SecureAggregationModel<Value: SAWrappedValue> {
                         throw SecureAggregationError.protocolAborted(reason: .unexpecedUserInProtocol)
                     }
                     let s_uv_sharedSecret = try s_v_privateKey.sharedSecretFromKeyAgreement(with: s_u_publicKey)
-                    return Value.mask(forSeed: s_uv_sharedSecret, mod: self.modulus).cancelling(ownID: vID, otherID: uID) // p_vu
+                    return Value.mask(forSeed: s_uv_sharedSecret, mod: self.modulus).cancelling(ownID: vID, otherID: uID, mod: self.modulus) // p_vu
                 }
             }
             let p_u_masksForRemainingUsers = try currentState.U3.map { uID in

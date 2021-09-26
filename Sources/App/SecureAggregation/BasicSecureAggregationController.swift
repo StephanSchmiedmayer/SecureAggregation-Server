@@ -17,13 +17,19 @@ let basicSecureAggregation = BasicSecureAggregationController()
 class BasicSecureAggregationController {
     typealias Value = SAInt
     
-    private(set) var model = SecureAggregationModel<SAInt>(threshold: 5, modulus: 100, salt: "LeagueOfLegends".data(using: .utf8)!)
+    let threshold = 2
+    let modulus = 100
+    let salt = "LeagueOfLegends".data(using: .utf8)!
     
-    fileprivate init() {}
+    private(set) var model: SecureAggregationModel<SAInt>
+    
+    fileprivate init() {
+        model = SecureAggregationModel<SAInt>(threshold: self.threshold, modulus: self.modulus, salt: self.salt)
+    }
     
     /// Resets the class and starts a new execution of the SecureAggregation Protocol
     func start(_ req: Request) throws -> HTTPResponseStatus {
-        model = SecureAggregationModel(threshold: 5, modulus: 100, salt: "LeagueOfLegends".data(using: .utf8)!)
+        model = SecureAggregationModel<Value>(threshold: self.threshold, modulus: self.modulus, salt: self.salt)
         try model.start()
         return .ok
     }
