@@ -102,7 +102,7 @@
       },
       {
         "package": "SecureAggregationCore",
-        "repositoryURL": "/Users/stephan/developer/bachelorarbeit/secureAggregationCore",
+        "repositoryURL": "ssh://git@bitbucket.ase.in.tum.de:7999/mk/secureaggregationcore.git",
         "state": {
           "branch": "master",
           "revision": "112bd7ba0ce2acc085d5dea00ffe91d03406da9c",
