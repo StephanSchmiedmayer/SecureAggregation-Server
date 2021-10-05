@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/swift-server/async-http-client.git",
         "state": {
           "branch": null,
-          "revision": "8fa7f082b155ea325bcf7b2dbffaf81d4eea1ae4",
-          "version": "1.5.1"
+          "revision": "d928cc81b31796dcea7378bf7e2519bed569c659",
+          "version": "1.6.1"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/vapor/async-kit.git",
         "state": {
           "branch": null,
-          "revision": "8ec02e274b70afe9e6d2f39c49b7491d76cbc128",
-          "version": "1.8.0"
+          "revision": "f6f92e6d3704bd72ffb4d00e302c98476fe65854",
+          "version": "1.9.0"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/vapor/fluent-kit.git",
         "state": {
           "branch": null,
-          "revision": "176f2b4b7c35a89dd756a5d6d8d5a8473bf92410",
-          "version": "1.15.2"
+          "revision": "06a6939ff486cb6abae08b2e025b02291cff0da0",
+          "version": "1.15.3"
         }
       },
       {
@@ -60,8 +60,8 @@
         "repositoryURL": "https://github.com/vapor/multipart-kit.git",
         "state": {
           "branch": null,
-          "revision": "30f53439b52587b016a5e5b3dce7f50f686681be",
-          "version": "4.4.0"
+          "revision": "82f255699b1de9ba1f34dfc6b99e99aba5a1f8eb",
+          "version": "4.5.0"
         }
       },
       {
@@ -69,8 +69,8 @@
         "repositoryURL": "https://github.com/vapor/postgres-kit.git",
         "state": {
           "branch": null,
-          "revision": "6f35f3065ef923475553ad6f85660ad971fe6cf3",
-          "version": "2.3.2"
+          "revision": "a050d338b41531bff65bccc87cf2a42871e87ff5",
+          "version": "2.3.3"
         }
       },
       {
@@ -96,7 +96,7 @@
         "repositoryURL": "git@github.com:StephanSchmiedmayer/SecretShare.swift.git",
         "state": {
           "branch": "master",
-          "revision": "6745b2416ad16c0ba29e121773a26296928389ac",
+          "revision": "5496e39a3bd22a48002819d1a95ecb4e15ed33a0",
           "version": null
         }
       },
@@ -105,7 +105,7 @@
         "repositoryURL": "ssh://git@bitbucket.ase.in.tum.de:7999/mk/secureaggregationcore.git",
         "state": {
           "branch": "master",
-          "revision": "112bd7ba0ce2acc085d5dea00ffe91d03406da9c",
+          "revision": "4acb64e289cb9534fbcb31e500e6901e58799587",
           "version": null
         }
       },
@@ -132,8 +132,8 @@
         "repositoryURL": "https://github.com/apple/swift-crypto.git",
         "state": {
           "branch": null,
-          "revision": "3bea268b223651c4ab7b7b9ad62ef9b2d4143eb6",
-          "version": "1.1.6"
+          "revision": "127d3745c37b5705e4bc8d16c7951c48dcc3332c",
+          "version": "2.0.0"
         }
       },
       {
@@ -177,8 +177,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-http2.git",
         "state": {
           "branch": null,
-          "revision": "dbfc8fcd1a0cc4d7254a060501120d378e91f16c",
-          "version": "1.18.3"
+          "revision": "326f7f9a8c8c8402e3691adac04911cac9f9d87f",
+          "version": "1.18.4"
         }
       },
       {
@@ -186,8 +186,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-ssl.git",
         "state": {
           "branch": null,
-          "revision": "044f90dfa0a7015446b40f5e578b06343ae1affe",
-          "version": "2.16.0"
+          "revision": "5e68c1ded15619bb281b273fa8c2d8fd7f7b2b7d",
+          "version": "2.16.1"
         }
       },
       {
@@ -204,8 +204,8 @@
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": null,
-          "revision": "f9f68e5f417ef1de56222a80079a72605fbfde8d",
-          "version": "4.48.8"
+          "revision": "8ee22de2845af389b9ed0e24f63983a0b5da6ab9",
+          "version": "4.49.0"
         }
       },
       {
