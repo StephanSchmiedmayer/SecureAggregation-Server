@@ -233,6 +233,7 @@ class SecureAggregationModel<Value: SAWrappedValue> {
                     return Value.mask(forSeed: s_uv_sharedSecret, mod: self.modulus).cancelling(ownID: vID, otherID: uID, mod: self.modulus) // p_vu
                 }
             }
+            
             let p_u_masksForRemainingUsers = try currentState.U3.map { uID in
                 currentState.b_uv.filter {
                     $0.origin == uID
