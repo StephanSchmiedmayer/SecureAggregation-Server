@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/swift-server/async-http-client.git",
         "state": {
           "branch": null,
-          "revision": "d928cc81b31796dcea7378bf7e2519bed569c659",
-          "version": "1.6.1"
+          "revision": "1081b0b0541f535ca088acdb56f5ca5598bc6247",
+          "version": "1.6.3"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/vapor/fluent-postgres-driver.git",
         "state": {
           "branch": null,
-          "revision": "c5ec19d6956779e553411da731a5190014189ea2",
-          "version": "2.2.0"
+          "revision": "0b7a43c78b7ae47eafad5736ab0fdc00aa31ca6f",
+          "version": "2.2.1"
         }
       },
       {
@@ -92,20 +92,11 @@
         }
       },
       {
-        "package": "ShamirSecretShare",
-        "repositoryURL": "git@github.com:StephanSchmiedmayer/SecretShare.swift.git",
-        "state": {
-          "branch": "master",
-          "revision": "5496e39a3bd22a48002819d1a95ecb4e15ed33a0",
-          "version": null
-        }
-      },
-      {
         "package": "SecureAggregationCore",
         "repositoryURL": "ssh://git@bitbucket.ase.in.tum.de:7999/mk/secureaggregationcore.git",
         "state": {
           "branch": "master",
-          "revision": "4acb64e289cb9534fbcb31e500e6901e58799587",
+          "revision": "d1d31502c9e009eb80c5c06b16293785f24a3010",
           "version": null
         }
       },
@@ -114,8 +105,8 @@
         "repositoryURL": "https://github.com/vapor/sql-kit.git",
         "state": {
           "branch": null,
-          "revision": "b70d1fea1b544dd819c17e83d59fb9aa85c81e74",
-          "version": "3.10.0"
+          "revision": "801688207773d33d4b0c1e366eb3faa9a12c2137",
+          "version": "3.11.0"
         }
       },
       {
@@ -200,12 +191,21 @@
         }
       },
       {
+        "package": "SwiftySSS",
+        "repositoryURL": "git@github.com:StephanSchmiedmayer/SwiftySSS.git",
+        "state": {
+          "branch": "main",
+          "revision": "894e63dd7feab09ba403adc38471b91c0ce9d618",
+          "version": null
+        }
+      },
+      {
         "package": "vapor",
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": null,
-          "revision": "8ee22de2845af389b9ed0e24f63983a0b5da6ab9",
-          "version": "4.49.0"
+          "revision": "27119271502bf266be293be5325f0fb72435e8fd",
+          "version": "4.49.2"
         }
       },
       {

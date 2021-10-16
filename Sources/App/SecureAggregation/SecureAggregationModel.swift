@@ -8,7 +8,7 @@
 import Foundation
 import SecureAggregationCore
 import Vapor
-import ShamirSecretShare
+import SwiftySSS
 
 /// Model of Secure Aggregation. Independent of Controller. Handles the logic
 class SecureAggregationModel<Value: SAWrappedValue> {
