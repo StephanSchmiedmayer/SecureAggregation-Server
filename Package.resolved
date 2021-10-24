@@ -78,8 +78,8 @@
         "repositoryURL": "https://github.com/vapor/postgres-nio.git",
         "state": {
           "branch": null,
-          "revision": "046d3ba1a40c5d2e2457177f4311b0b9c97f8945",
-          "version": "1.6.2"
+          "revision": "c5eda6cebfdb81959f96d4ad8fcb1e8fc4596a52",
+          "version": "1.6.3"
         }
       },
       {
@@ -96,7 +96,7 @@
         "repositoryURL": "ssh://git@bitbucket.ase.in.tum.de:7999/mk/secureaggregationcore.git",
         "state": {
           "branch": "master",
-          "revision": "d1d31502c9e009eb80c5c06b16293785f24a3010",
+          "revision": "a2d7a0a27cc088fc5fb3512e4910ef22a5ff87b2",
           "version": null
         }
       },
@@ -105,8 +105,8 @@
         "repositoryURL": "https://github.com/vapor/sql-kit.git",
         "state": {
           "branch": null,
-          "revision": "801688207773d33d4b0c1e366eb3faa9a12c2137",
-          "version": "3.11.0"
+          "revision": "8587674e7e2499fd2017840973f416182025b02d",
+          "version": "3.12.1"
         }
       },
       {

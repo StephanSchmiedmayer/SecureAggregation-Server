@@ -180,7 +180,7 @@ class SecureAggregationModel<Value: SAWrappedValue> {
             guard case .round2Finished(let round2FinishedState) = state else {
                 throw SecureAggregationError.incorrectStateForMethod
             }
-            return Model.Round2.ServerData(remainingUsers: round2FinishedState.U2)
+            return Model.Round2.ServerData(remainingUsers: round2FinishedState.U3)
         }
     }
     
@@ -230,7 +230,7 @@ class SecureAggregationModel<Value: SAWrappedValue> {
                         throw SecureAggregationError.protocolAborted(reason: .unexpecedUserInProtocol)
                     }
                     let s_uv_sharedSecret = try s_v_privateKey.sharedSecretFromKeyAgreement(with: s_u_publicKey)
-                    return Value.mask(forSeed: s_uv_sharedSecret, mod: self.modulus).cancelling(ownID: vID, otherID: uID, mod: self.modulus) // p_vu
+                    return try Value.mask(sharedSecret: s_uv_sharedSecret, salt: self.salt, mod: self.modulus).cancelling(ownID: vID, otherID: uID, mod: self.modulus) // p_vu
                 }
             }
             
@@ -247,7 +247,7 @@ class SecureAggregationModel<Value: SAWrappedValue> {
             }.map { privateKey in
                 try privateKey.sharedSecretFromKeyAgreement(with: privateKey.publicKey)
             }.map { secret in
-                Value.mask(forSeed: secret, mod: self.modulus)
+                try Value.mask(sharedSecret: secret, salt: self.salt, mod: self.modulus)
             }
             
             let sum_y_u_U3 = currentState.collectedMaskedValues.filter {

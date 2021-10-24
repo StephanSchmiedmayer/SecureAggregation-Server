@@ -17,8 +17,8 @@ let basicSecureAggregation = BasicSecureAggregationController()
 class BasicSecureAggregationController {
     typealias Value = SAInt
     
-    let threshold = 2
-    let modulus = 100
+    let threshold = 3
+    let modulus = 1000
     let salt = "LeagueOfLegends".data(using: .utf8)!
     
     private(set) var model: SecureAggregationModel<SAInt>
