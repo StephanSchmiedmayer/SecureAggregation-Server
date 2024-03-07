@@ -11,6 +11,8 @@ let package = Package(
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.0.0"),
+        .package(url: "https://github.com/apple/swift-nio.git", .upToNextMajor(from: "2.64.0")),
+        .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
         .package(name: "SecureAggregationCore", url: "https://github.com/StephanSchmiedmayer/SecureAggregation-Core", Package.Dependency.Requirement.branch("master")),
     ],
     targets: [
