@@ -93,10 +93,10 @@
       },
       {
         "package": "SecureAggregationCore",
-        "repositoryURL": "ssh://git@bitbucket.ase.in.tum.de:7999/mk/secureaggregationcore.git",
+        "repositoryURL": "https://github.com/StephanSchmiedmayer/SecureAggregation-Core",
         "state": {
           "branch": "master",
-          "revision": "a2d7a0a27cc088fc5fb3512e4910ef22a5ff87b2",
+          "revision": "4a152d78606b5d1a272d5a0cecc6bf949c6e570e",
           "version": null
         }
       },
@@ -192,7 +192,7 @@
       },
       {
         "package": "SwiftySSS",
-        "repositoryURL": "git@github.com:StephanSchmiedmayer/SwiftySSS.git",
+        "repositoryURL": "https://github.com/StephanSchmiedmayer/SwiftySSS",
         "state": {
           "branch": "main",
           "revision": "894e63dd7feab09ba403adc38471b91c0ce9d618",
